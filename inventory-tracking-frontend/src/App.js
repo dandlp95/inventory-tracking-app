@@ -7,6 +7,7 @@ import WarehousesLayout from "./components/WarehousesLayout";
 import WarehouseInfo from "./components/WarehouseInfo";
 import WarehouseInventory from "./components/WarehouseInventory";
 import AddProductForm from "./components/AddProductForm";
+import EditProductForm from "./components/EditProductForm";
 
 function App() {
   return (
@@ -15,9 +16,13 @@ function App() {
       <Routes>
         <Route path="/products" element={<ProductsLayout />} />
         <Route path="/warehouses" element={<WarehousesLayout />} />
-        <Route path="/warehouses/:id" element={<WarehouseInfo/>}/>
-        <Route path="/getWarehouseInventory/:id" element={<WarehouseInventory/>} />
-        <Route path="/add_product" element={<AddProductForm/>}/>
+        <Route path="/warehouses/:id" element={<WarehouseInfo />} />
+        <Route
+          path="/getWarehouseInventory/:id"
+          element={<WarehouseInventory />}
+        />
+        <Route path="/add_product" element={<AddProductForm />} />
+        <Route path="/edit_product/:id" element={<EditProductForm/>} />
       </Routes>
     </div>
   );

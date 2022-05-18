@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import EditProductForm from "./EditProductForm";
-import DeleteProductForm from "./DeleteProductForm";
 import AddProductForm from "./AddProductForm";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -21,18 +20,36 @@ function ProductsLayout() {
     return (
       <div>
         {products.map((product) => {
+          
+          async function deleteProduct() {
+            const id = product._id;
+            const url = `http://localhost:8080/products/delete_product/${id}`;
+
+            const options = {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            };
+            await fetch(url, options);
+            window.location.reload();
+            
+          }
+
           return (
             <div>
               <h2>{product.productName}</h2>
               <p>{product.description}</p>
               <p>{product.quantity}</p>
+              <button onClick={deleteProduct}>Delete Product</button>
+              <Link to={`/edit_product/${product._id}`}>Edit Product</Link>
             </div>
           );
         })}
         <div>
-            <Link to="/add_product">
-                <button>Add Product</button>
-            </Link>
+          <Link to="/add_product">
+            <button>Add Product</button>
+          </Link>
         </div>
       </div>
     );
