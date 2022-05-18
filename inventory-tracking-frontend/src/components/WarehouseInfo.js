@@ -5,7 +5,6 @@ import axios from "axios";
 
 function WarehouseInfo() {
   const { id } = useParams();
-  console.log(id);
   const [warehouse, setWarehouse] = useState(null);
 
   const url = `http://localhost:8080/warehouses/${id}`;

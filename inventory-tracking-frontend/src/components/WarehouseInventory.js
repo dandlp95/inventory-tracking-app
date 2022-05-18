@@ -8,31 +8,27 @@ function WarehouseInventory() {
 
   const url = `http://localhost:8080/warehouses/getInventory/${id}`;
 
-
   useEffect(() => {
     axios.get(url).then((response) => {
       setInventory(response.data);
     });
-    console.log("hola");
   }, [url]);
 
   if (inventory) {
     console.log(inventory);
-    return(
-        <div>
-            {
-                inventory.map((item) => {
-                    return(
-                        <div>
-                            <h2>{item.name}</h2>
-                            <p>{item.description}</p>
-                            <p>{item.quantity}</p>
-                        </div>
-                    )
-                })
-            }
-        </div>
-    )
+    return (
+      <div>
+        {inventory.map((item) => {
+          return (
+            <div>
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              <p>{item.quantity}</p>
+            </div>
+          );
+        })}
+      </div>
+    );
   } else {
     <div>
       <h2>Loading...</h2>

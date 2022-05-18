@@ -20,7 +20,6 @@ function ProductsLayout() {
     return (
       <div>
         {products.map((product) => {
-          
           async function deleteProduct() {
             const id = product._id;
             const url = `http://localhost:8080/products/delete_product/${id}`;
@@ -33,7 +32,6 @@ function ProductsLayout() {
             };
             await fetch(url, options);
             window.location.reload();
-            
           }
 
           return (
@@ -43,6 +41,9 @@ function ProductsLayout() {
               <p>{product.quantity}</p>
               <button onClick={deleteProduct}>Delete Product</button>
               <Link to={`/edit_product/${product._id}`}>Edit Product</Link>
+              <Link to={`/add_inventory/${product._id}`}>
+                Add Product to Warehouse Inventory
+              </Link>
             </div>
           );
         })}
