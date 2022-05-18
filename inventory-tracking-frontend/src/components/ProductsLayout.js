@@ -3,6 +3,7 @@ import EditProductForm from "./EditProductForm";
 import DeleteProductForm from "./DeleteProductForm";
 import AddProductForm from "./AddProductForm";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ProductsLayout() {
   const url = "http://localhost:8080/products";
@@ -28,6 +29,11 @@ function ProductsLayout() {
             </div>
           );
         })}
+        <div>
+            <Link to="/add_product">
+                <button>Add Product</button>
+            </Link>
+        </div>
       </div>
     );
   } else {

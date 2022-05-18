@@ -5,7 +5,8 @@ import OptionsBar from "./components/OptionsBar";
 import ProductsLayout from "./components/ProductsLayout";
 import WarehousesLayout from "./components/WarehousesLayout";
 import WarehouseInfo from "./components/WarehouseInfo";
-import WarehouseInventory from "./components/WarehouseInventory"
+import WarehouseInventory from "./components/WarehouseInventory";
+import AddProductForm from "./components/AddProductForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/warehouses" element={<WarehousesLayout />} />
         <Route path="/warehouses/:id" element={<WarehouseInfo/>}/>
         <Route path="/getWarehouseInventory/:id" element={<WarehouseInventory/>} />
+        <Route path="/add_product" element={<AddProductForm/>}/>
       </Routes>
     </div>
   );
