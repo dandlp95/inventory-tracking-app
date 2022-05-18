@@ -1,40 +1,42 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, Route, Routes } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-
 
 function WarehouseInventory() {
   const { id } = useParams();
-  console.log(id);
-  const [warehouse, setWarehouse] = useState(null);
+  const [inventory, setInventory] = useState(null);
 
-  const url = `http://localhost:8080/warehouses/${id}`;
+  const url = `http://localhost:8080/warehouses/getInventory/${id}`;
+
 
   useEffect(() => {
     axios.get(url).then((response) => {
-      setWarehouse(response.data);
+      setInventory(response.data);
     });
+    console.log("hola");
   }, [url]);
 
-  if (warehouse) {
-    
-    
-
+  if (inventory) {
+    console.log(inventory);
     return(
         <div>
-            <h2>{warehouse.name}</h2>
-            <p>{warehouse.location}</p>
-            <Link to={`/getWarehouseInventory/${warehouse._id}`}>
-            <button>Access Inventory</button>
-            </Link>
+            {
+                inventory.map((item) => {
+                    return(
+                        <div>
+                            <h2>{item.name}</h2>
+                            <p>{item.description}</p>
+                            <p>{item.quantity}</p>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
   } else {
-    return (
-      <div>
-        <h2>Loading...</h2>
-      </div>
-    );
+    <div>
+      <h2>Loading...</h2>
+    </div>;
   }
 }
 
