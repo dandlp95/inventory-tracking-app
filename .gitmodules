@@ -1,0 +1,3 @@
+[submodule "inventory-tracking-backend"]
+	path = inventory-tracking-backend
+	url = https://github.com/dandlp95/inventory-tracking.git
