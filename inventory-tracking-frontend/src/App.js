@@ -9,6 +9,7 @@ import WarehouseInventory from "./components/WarehouseInventory";
 import AddProductForm from "./components/AddProductForm";
 import EditProductForm from "./components/EditProductForm";
 import AddInventoryForm from "./components/AddInventoryForm";
+import AddWarehouseForm from "./components/AddWarehouseForm";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/edit_product/:id" element={<EditProductForm />} />
         <Route path="/products/:id" element={<AddProductForm />} />
         <Route path="/add_inventory/:id" element={<AddInventoryForm />} />
+        <Route path="/add_warehouse" element={<AddWarehouseForm />} />
       </Routes>
     </div>
   );

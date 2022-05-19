@@ -30,7 +30,6 @@ function AddProductForm() {
       quantity: enteredQuantity,
       description: enteredDescription,
     };
-    console.log(productData);
 
     addProductHandler(productData);
   }

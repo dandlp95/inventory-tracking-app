@@ -13,6 +13,9 @@ function OptionsBar() {
           <li>
             <Link to="/warehouses">All Warehouses</Link>
           </li>
+          <li>
+            <Link to="/add_warehouse">Add a new warehouse</Link>
+          </li>
         </ul>
       </nav>
     </header>
